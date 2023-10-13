@@ -5,7 +5,8 @@ import './index.css'
 class Feedback extends Component {
   state = {isRespond: false}
 
-  customerFeedback = resources => {
+  customerFeedback = () => {
+    const {resources} = this.props
     const {emojis, loveEmojiUrl} = resources
     const {isRespond} = this.state
     if (isRespond === false) {
@@ -47,11 +48,8 @@ class Feedback extends Component {
 
   render() {
     const {resources} = this.props
-    const {emojis, loveEmojiUrl, id} = resources
     return (
-      <div className="bg-container">
-        {this.customerFeedback(emojis, loveEmojiUrl)}
-      </div>
+      <div className="bg-container">{this.customerFeedback(resources)}</div>
     )
   }
 }
